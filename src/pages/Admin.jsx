@@ -15,11 +15,11 @@ const Admin = () => {
   const dispatch = useDispatch()
   const onResRecevied = (res) => {
     console.log(res);
-    const isLogedin = res ? true : false; // Assuming res.user exists when logged in
+    const isLogedin = res ? true : false;
     dispatch(adminLogin());
     localStorage.setItem('adminId', res.id);
     localStorage.setItem('token', res.token);
-    console.log('isLogedin', isLogedin); // Use the updated state directly
+    console.log('isLogedin', isLogedin); 
   };
 
 
@@ -33,6 +33,7 @@ const Admin = () => {
         if (res && res.message) {
           dispatch(adminLogin())
           toast.success(res.message);
+          window.location.href = '/movies'
         } else {
           toast.error('Unexpected response:', res);
         }

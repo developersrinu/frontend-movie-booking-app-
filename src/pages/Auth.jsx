@@ -24,6 +24,7 @@ const Auth = () => {
         console.log("Response:", res.message, res.user);
         onResRecevied(res);
         toast.success(res.message);
+        window.location.href = '/movies'
       })
       .catch((error) => {
         console.log("Error during authentication:", error.message);
